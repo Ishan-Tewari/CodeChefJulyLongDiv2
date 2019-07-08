@@ -10,7 +10,9 @@ class ChefAndMean {
 
         t=in.nextInt();
         while (t!=0){
-
+            //assign sum to 0 for every iteration to work properly
+            sum=0;
+            
             n=in.nextInt();
             double a[] = new double[n];
             for(i=0;i<n;i++){
