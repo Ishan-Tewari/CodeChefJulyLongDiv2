@@ -1,5 +1,3 @@
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 class ChefAndMean {
@@ -8,15 +6,15 @@ class ChefAndMean {
         int t;
         int n;
         int i;
-        float mean=0,sum=0,mean2=0,temp;
+        double mean=0,sum=0;
 
         t=in.nextInt();
         while (t!=0){
 
             n=in.nextInt();
-            int a[] = new int[n];
+            double a[] = new double[n];
             for(i=0;i<n;i++){
-                a[i]=in.nextInt();
+                a[i]=in.nextDouble();
             }
 
             //calculating mean
@@ -25,27 +23,17 @@ class ChefAndMean {
             }
             mean=sum/n;
 
-            //System.out.println("sum is"+sum);
-           // System.out.println("mean is"+mean);
-
-            //removing each coin and verifying the mean
+            //if mean=a[i] then its possible to achieve the same mean by removing it
             for(i=0;i<n;i++){
-                temp=sum;
-                temp=temp-a[i];
-                mean2=temp/(n-1);
-                //System.out.println("temp is"+temp);
-                //System.out.println("mean2 is"+mean2);
-                //if(Math.round(mean*1.00000)/1.00000==Math.round(mean2*1.0)/1.0){
-                if(mean==mean2){
+                if(mean==a[i]){
                     System.out.println(i+1);
                     break;
                 }
             }
-            System.out.println(i);
+            //if the break statement doesnt execute then there is no possiblity of ahieving the same mean
             if(i==n)
                 System.out.println("Impossible");
             t--;
         }
-
     }
 }
